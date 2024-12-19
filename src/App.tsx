@@ -7,6 +7,7 @@ import {
   Linkedin01Icon,
   Mail01Icon,
   ThreadsIcon,
+  LicenseIcon,
 } from "hugeicons-react";
 import "./App.css";
 
@@ -96,15 +97,17 @@ function App() {
             onImageClick={handleImageClick}
           />
 
+          {/* going to be side projects */}
           <div className="px-8"></div>
 
-          {/* socials */}
-          <div className="flex flex-row gap-4">
+          {/* links */}
+          <div className="flex flex-row gap-4 align-baseline">
             <a
               href="https://threads.net/@armondme"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-slate-900 transition-colors ease-out"
+              title="Threads"
+              className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
             >
               <ThreadsIcon size={26} />
             </a>
@@ -112,7 +115,8 @@ function App() {
               href="https://github.com/armondschneider"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-slate-900 transition-colors ease-out"
+              title="GitHub"
+              className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
             >
               <Github01Icon size={26} />
             </a>
@@ -120,13 +124,23 @@ function App() {
               href="https://linkedin.com/in/armondschneider"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-slate-900 transition-colors ease-out"
+              title="LinkedIn"
+              className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
             >
               <Linkedin01Icon size={26} />
             </a>
             <a
+              href="https://read.cv/armond"
+              target="_blank"
+              title="Read.CV"
+              className="rotate-12 text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
+            >
+              <LicenseIcon size={24} />
+            </a>
+            <a
               href="mailto:armondschneider@gmail.com"
-              className="text-slate-400 hover:text-slate-900 transition-colors ease-out"
+              title="Email"
+              className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
             >
               <Mail01Icon size={26} />
             </a>
