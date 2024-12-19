@@ -1,7 +1,13 @@
 import { useState } from "react";
 import HoverEffect from "./components/ProfileHoverEffect";
-import LogoHoverEffect from "./components/LogoHoverEffect";
+import Experience from "./components/Experience";
 import ImageModal from "./components/ImageModal";
+import {
+  Github01Icon,
+  Linkedin01Icon,
+  Mail01Icon,
+  ThreadsIcon,
+} from "hugeicons-react";
 import "./App.css";
 
 function App() {
@@ -17,11 +23,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
-      {/* Shared Padding Container */}
       <div className="px-4 md:px-20">
         {/* Header Section */}
         <header className="py-8 relative">
-          <h1 className="text-left text-lg font-medium cursor-default relative">
+          <h1 className="text-left text-lg font-semibold cursor-default relative">
             <HoverEffect
               text="Armond Schneider"
               imageSrc="./src/assets/armond/armond.jpg"
@@ -36,7 +41,9 @@ function App() {
           <p className="text-left text-md mt-6 max-w-xl">
             Currently leading our Web Design System at{" "}
             <a
+              className="underline"
               href="https://www.paradox.ai"
+              target="_blank"
             >
               Paradox
             </a>
@@ -50,75 +57,85 @@ function App() {
             Experience
           </h2>
 
-          <div className="text-left">
-            {/* Title and Description */}
-            <div className="mb-8">
-              <p className="text-md font-medium">
-                <LogoHoverEffect
-                  text="Web UI Designer at Paradox"
-                  logoSrc="./src/assets/paradox/paradoxLogo.png"
-                />
-              </p>
-              <p className="text-pretty text-md mt-2 text-gray-900">
-                Reimagined and led the creation of seamless, reusable components
-                that allowed our teams to craft career sites that see millions
-                of users.
-              </p>
-              <p className="text-md text-gray-400 mt-2 font-regular">
-                2024 - Present
-              </p>
-            </div>
+          <Experience
+            title="Web UI Designer at Paradox"
+            logoSrc="./src/assets/paradox/paradoxLogo.png"
+            description="Reimagined and led the creation of seamless, reusable components that allowed our teams to craft career sites that see millions of users."
+            dates="Feb 2024 - Present"
+            images={[
+              "./src/assets/paradox/paradox1.jpg",
+              "./src/assets/paradox/paradox2.jpg",
+              "./src/assets/paradox/paradox3.jpg",
+            ]}
+            onImageClick={handleImageClick}
+          />
 
-            {/* Scrollable Image Grid */}
-            <div className="overflow-x-auto custom-scrollbar pb-4 md:overflow-visible">
-              <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-8">
-                {/* Image 1 */}
-                <div
-                  className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
-                  onClick={() =>
-                    handleImageClick("./src/assets/paradox/paradox1.jpg")
-                  }
-                >
-                  <img
-                    src="./src/assets/paradox/paradox1.jpg"
-                    alt="UI Example 1"
-                    className="object-cover w-full h-48 md:h-56"
-                  />
-                </div>
-                {/* Image 2 */}
-                <div
-                  className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
-                  onClick={() =>
-                    handleImageClick("./src/assets/paradox/paradox2.jpg")
-                  }
-                >
-                  <img
-                    src="./src/assets/paradox/paradox2.jpg"
-                    alt="UI Example 2"
-                    className="object-cover w-full h-48 md:h-56"
-                  />
-                </div>
-                {/* Image 3 */}
-                <div
-                  className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
-                  onClick={() =>
-                    handleImageClick("./src/assets/paradox/paradox3.jpg")
-                  }
-                >
-                  <img
-                    src="./src/assets/paradox/paradox3.jpg"
-                    alt="UI Example 3"
-                    className="object-cover w-full h-48 md:h-56"
-                  />
-                </div>
-              </div>
-            </div>
+          <Experience
+            title="Product Designer, Design Engineer at Dump"
+            logoSrc="./src/assets/dump/dumpLogo.jpg"
+            description="Served as the lead designer and worked closely with our engineer to bring the vision to life, crafting every user interface component and screen for our iOS application."
+            dates="2023 - 2024"
+            images={[
+              "./src/assets/dump/dump1.jpg",
+              "./src/assets/dump/dump2.jpg",
+              "./src/assets/dump/dump3.jpg",
+            ]}
+            onImageClick={handleImageClick}
+          />
+
+          <Experience
+            title="UI Designer at Hause"
+            logoSrc="./src/assets/hause/hauseLogo.jpg"
+            description="Focused on redefining how digital and physical art is showcased and sold, designing experiences that present data clearly while helping users connect more deeply with the artwork."
+            dates="2022 - 2023"
+            images={[
+              "./src/assets/hause/hause1.jpg",
+              "./src/assets/hause/hause2.jpg",
+              "./src/assets/hause/hause3.jpg",
+            ]}
+            onImageClick={handleImageClick}
+          />
+
+          <div className="px-8"></div>
+
+          {/* socials */}
+          <div className="flex flex-row gap-4">
+            <a
+              href="https://threads.net/@armondme"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-slate-900 transition-colors ease-out"
+            >
+              <ThreadsIcon size={26} />
+            </a>
+            <a
+              href="https://github.com/armondschneider"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-slate-900 transition-colors ease-out"
+            >
+              <Github01Icon size={26} />
+            </a>
+            <a
+              href="https://linkedin.com/in/armondschneider"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-slate-900 transition-colors ease-out"
+            >
+              <Linkedin01Icon size={26} />
+            </a>
+            <a
+              href="mailto:armondschneider@gmail.com"
+              className="text-slate-400 hover:text-slate-900 transition-colors ease-out"
+            >
+              <Mail01Icon size={26} />
+            </a>
           </div>
         </div>
-      </div>
 
-      {/* Image Modal */}
-      <ImageModal imageSrc={selectedImage} onClose={closeModal} />
+        {/* Image Modal */}
+        <ImageModal imageSrc={selectedImage} onClose={closeModal} />
+      </div>
     </div>
   );
 }

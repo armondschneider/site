@@ -24,7 +24,7 @@ const LogoHoverEffect: React.FC<LogoHoverEffectProps> = ({ text, logoSrc }) => {
   return (
     <span
       ref={textRef}
-      className="inline cursor-pointer relative"
+      className="inline cursor-alias relative"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={handleMouseMove}
