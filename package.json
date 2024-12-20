@@ -2,7 +2,7 @@
   "name": "site",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://armondschneider.github.io/",
+  "homepage": "https://armondschneider.github.io/site",
 "scripts": {
   "start": "vite",
   "build": "vite build",

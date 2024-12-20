@@ -30,7 +30,7 @@ function App() {
           <h1 className="text-left text-lg font-semibold cursor-default relative">
             <HoverEffect
               text="Armond Schneider"
-              imageSrc="./src/assets/armond/armond.jpg"
+              imageSrc="./assets/armond/armond.jpg"
             />
           </h1>
 
@@ -60,39 +60,39 @@ function App() {
 
           <Experience
             title="Web UI Designer at Paradox"
-            logoSrc="./src/assets/paradox/paradoxLogo.png"
+            logoSrc="./assets/paradox/paradoxLogo.png"
             description="Reimagined and led the creation of seamless, reusable components that allowed our teams to craft career sites that see millions of users."
             dates="Feb 2024 - Present"
             images={[
-              "./src/assets/paradox/paradox1.jpg",
-              "./src/assets/paradox/paradox2.jpg",
-              "./src/assets/paradox/paradox3.jpg",
+              "./assets/paradox/paradox1.jpg",
+              "./assets/paradox/paradox2.jpg",
+              "./assets/paradox/paradox3.jpg",
             ]}
             onImageClick={handleImageClick}
           />
 
           <Experience
             title="Product Designer, Design Engineer at Dump"
-            logoSrc="./src/assets/dump/dumpLogo.jpg"
+            logoSrc="./assets/dump/dumpLogo.jpg"
             description="Served as the lead designer and worked closely with our engineer to bring the vision to life, crafting every user interface component and screen for our iOS application."
             dates="2023 - 2024"
             images={[
-              "./src/assets/dump/dump1.jpg",
-              "./src/assets/dump/dump2.jpg",
-              "./src/assets/dump/dump3.jpg",
+              "./assets/dump/dump1.jpg",
+              "./assets/dump/dump2.jpg",
+              "./assets/dump/dump3.jpg",
             ]}
             onImageClick={handleImageClick}
           />
 
           <Experience
             title="UI Designer at Hause"
-            logoSrc="./src/assets/hause/hauseLogo.jpg"
+            logoSrc="./assets/hause/hauseLogo.jpg"
             description="Focused on redefining how digital and physical art is showcased and sold, designing experiences that present data clearly while helping users connect more deeply with the artwork."
             dates="2022 - 2023"
             images={[
-              "./src/assets/hause/hause1.jpg",
-              "./src/assets/hause/hause2.jpg",
-              "./src/assets/hause/hause3.jpg",
+              "./assets/hause/hause1.jpg",
+              "./assets/hause/hause2.jpg",
+              "./assets/hause/hause3.jpg",
             ]}
             onImageClick={handleImageClick}
           />
