@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "homepage": "https://armondschneider.github.io/",
-  "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
+"scripts": {
+  "start": "vite",
+  "build": "vite build",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "canvas-confetti": "^1.9.3",
