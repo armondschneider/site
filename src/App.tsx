@@ -50,6 +50,9 @@ function App() {
             </a>
             .
           </p>
+          <p className="text-left text-md mt-6 max-w-xl">
+            Also building Verse, a camera app that uses AI to generate poetry based on what it sees.
+          </p>
         </header>
 
         {/* Experience Section */}
@@ -97,8 +100,57 @@ function App() {
             onImageClick={handleImageClick}
           />
 
-          {/* going to be side projects */}
-          <div className="px-8"></div>
+          {/*side projects */}
+          <div className="py-8 relative">
+            <h2 className="mb-16 text-left text-md font-medium cursor-default relative">
+              Side Projects
+            </h2>
+            <div className="overflow-x-auto custom-scrollbar pb-4 md:overflow-visible">
+              <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-8">
+                {/* Project 1 */}
+                <div
+                  className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
+                  onClick={() =>
+                    setSelectedImage("./assets/sideprojects/aipoemcamera.jpg")
+                  }
+                >
+                  <img
+                    src="./assets/sideprojects/aipoemcamera.jpg"
+                    alt="Project 1"
+                    className="object-cover w-full h-48 md:h-56"
+                  />
+                </div>
+
+                {/* Project 2 */}
+                <div
+                  className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
+                  onClick={() =>
+                    setSelectedImage("./assets/sideprojects/taptac.jpg")
+                  }
+                >
+                  <img
+                    src="./assets/sideprojects/taptac.jpg"
+                    alt="Project 2"
+                    className="object-cover w-full h-48 md:h-56"
+                  />
+                </div>
+
+                {/* Project 3 */}
+                <div
+                  className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
+                  onClick={() =>
+                    setSelectedImage("./assets/sideprojects/spelling.jpg")
+                  }
+                >
+                  <img
+                    src="./assets/sideprojects/spelling.jpg"
+                    alt="spelling"
+                    className="object-cover w-full h-48 md:h-56"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* links */}
           <div className="flex flex-row gap-4 align-baseline">
