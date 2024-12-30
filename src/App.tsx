@@ -2,6 +2,7 @@ import { useState } from "react";
 import HoverEffect from "./components/ProfileHoverEffect";
 import Experience from "./components/Experience";
 import ImageModal from "./components/ImageModal";
+import { Link } from "react-router-dom";
 import {
   Github01Icon,
   Linkedin01Icon,
@@ -51,7 +52,8 @@ function App() {
             .
           </p>
           <p className="text-left text-md mt-6 max-w-xl">
-            Also building Verse, a camera app that uses AI to generate poetry based on what it sees.
+            Also building Verse, a camera app that uses AI to generate poetry
+            based on what it sees.
           </p>
         </header>
 
@@ -102,8 +104,13 @@ function App() {
 
           {/*side projects */}
           <div className="py-8 relative">
-            <h2 className="mb-16 text-left text-md font-medium cursor-default relative">
-              Side Projects
+            <h2 className="mb-16 text-left text-md font-medium cursor-pointer relative">
+              <Link
+                to="/side-projects"
+                className="underline hover:text-blue-500 transition-colors"
+              >
+                Side Projects
+              </Link>
             </h2>
             <div className="overflow-x-auto custom-scrollbar pb-4 md:overflow-visible">
               <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-8">
