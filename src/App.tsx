@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { motion } from "framer-motion"; // Import motion for animations
 import HoverEffect from "./components/ProfileHoverEffect";
 import Experience from "./components/Experience";
 import ImageModal from "./components/ImageModal";
-import { Link } from "react-router-dom";
 import {
   Github01Icon,
   Linkedin01Icon,
@@ -23,42 +23,74 @@ function App() {
     setSelectedImage(null);
   };
 
+  // Animation Variants
+  const container = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Delay between animations
+      },
+    },
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeInOut" } },
+  };
+
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans">
+    <motion.div
+      className="min-h-screen bg-white text-gray-900 font-sans"
+      initial="hidden"
+      animate="visible"
+      variants={container}
+    >
       <div className="px-4 md:px-20">
         {/* Header Section */}
         <header className="py-8 relative">
-          <h1 className="text-left text-lg font-semibold cursor-default relative">
+          <motion.h1
+            className="text-left text-lg font-semibold cursor-default relative"
+            variants={fadeInUp} // Staggered animation
+          >
             <HoverEffect
               text="Armond Schneider"
               imageSrc="./assets/armond/armond.jpg"
             />
-          </h1>
+          </motion.h1>
 
-          {/* Description */}
-          <p className="text-left text-md mt-6 max-w-xl">
-            Interested in building ideas that bring happiness and improve the
-            human digital experience.
-          </p>
-          <p className="text-left text-md mt-6 max-w-xl">
-            Currently leading our Web Design System at{" "}
-            <a
-              className="underline"
-              href="https://www.paradox.ai"
-              target="_blank"
-            >
-              Paradox
-            </a>
-            .
-          </p>
-          <p className="text-left text-md mt-6 max-w-xl">
-            Also building Verse, a camera app that uses AI to generate poetry
-            based on what it sees.
-          </p>
+          <motion.div variants={fadeInUp} className="mt-6">
+            <p className="text-left text-md max-w-xl">
+              Interested in building ideas that bring happiness and improve the
+              human digital experience.
+            </p>
+            <p className="text-left text-md mt-6 max-w-xl">
+              Currently leading our Web Design System at{" "}
+              <a
+                className="underline"
+                href="https://www.paradox.ai"
+                target="_blank"
+              >
+                Paradox
+              </a>
+              .
+            </p>
+            <p className="text-left text-md mt-6 max-w-xl">
+              Also building{" "}
+              <a
+                className="underline"
+                href="https://armondschneider.github.io/verseapp-site/"
+                target="_blank"
+              >
+                Verse
+              </a>
+              , a camera app that uses AI to generate poetry based on what it sees.
+            </p>
+          </motion.div>
         </header>
 
         {/* Experience Section */}
-        <div className="py-8 relative">
+        <motion.div className="py-8 relative" variants={fadeInUp}>
           <h2 className="mb-16 text-left text-md font-medium cursor-default relative">
             Experience
           </h2>
@@ -101,115 +133,113 @@ function App() {
             ]}
             onImageClick={handleImageClick}
           />
+        </motion.div>
 
-          {/*side projects */}
-          <div className="py-8 relative">
-            <h2 className="mb-16 text-left text-md font-medium cursor-pointer relative">
-              <Link
-                to="/side-projects"
-                className="underline hover:text-blue-500 transition-colors"
+        {/* Side Projects Section */}
+        <motion.div className="py-8 relative" variants={fadeInUp}>
+          <h2 className="mb-16 text-left text-md font-medium cursor-default relative">
+            Side Projects
+          </h2>
+          <div className="overflow-x-auto custom-scrollbar pb-4 md:overflow-visible">
+            <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-8">
+              {/* Project 1 */}
+              <div
+                className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
+                onClick={() =>
+                  setSelectedImage("./assets/sideprojects/aipoemcamera.jpg")
+                }
               >
-                Side Projects
-              </Link>
-            </h2>
-            <div className="overflow-x-auto custom-scrollbar pb-4 md:overflow-visible">
-              <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-8">
-                {/* Project 1 */}
-                <div
-                  className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
-                  onClick={() =>
-                    setSelectedImage("./assets/sideprojects/aipoemcamera.jpg")
-                  }
-                >
-                  <img
-                    src="./assets/sideprojects/aipoemcamera.jpg"
-                    alt="Project 1"
-                    className="object-cover w-full h-48 md:h-56"
-                  />
-                </div>
+                <img
+                  src="./assets/sideprojects/aipoemcamera.jpg"
+                  alt="Project 1"
+                  className="object-cover w-full h-48 md:h-56"
+                />
+              </div>
 
-                {/* Project 2 */}
-                <div
-                  className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
-                  onClick={() =>
-                    setSelectedImage("./assets/sideprojects/taptac.jpg")
-                  }
-                >
-                  <img
-                    src="./assets/sideprojects/taptac.jpg"
-                    alt="Project 2"
-                    className="object-cover w-full h-48 md:h-56"
-                  />
-                </div>
+              {/* Project 2 */}
+              <div
+                className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
+                onClick={() =>
+                  setSelectedImage("./assets/sideprojects/taptac.jpg")
+                }
+              >
+                <img
+                  src="./assets/sideprojects/taptac.jpg"
+                  alt="Project 2"
+                  className="object-cover w-full h-48 md:h-56"
+                />
+              </div>
 
-                {/* Project 3 */}
-                <div
-                  className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
-                  onClick={() =>
-                    setSelectedImage("./assets/sideprojects/spelling.jpg")
-                  }
-                >
-                  <img
-                    src="./assets/sideprojects/spelling.jpg"
-                    alt="spelling"
-                    className="object-cover w-full h-48 md:h-56"
-                  />
-                </div>
+              {/* Project 3 */}
+              <div
+                className="shrink-0 md:shrink rounded-xl overflow-hidden border border-gray-200 shadow-sm w-[80%] md:w-auto cursor-pointer"
+                onClick={() =>
+                  setSelectedImage("./assets/sideprojects/spelling.jpg")
+                }
+              >
+                <img
+                  src="./assets/sideprojects/spelling.jpg"
+                  alt="spelling"
+                  className="object-cover w-full h-48 md:h-56"
+                />
               </div>
             </div>
           </div>
+        </motion.div>
 
-          {/* links */}
-          <div className="flex flex-row gap-4 align-baseline">
-            <a
-              href="https://threads.net/@armondme"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Threads"
-              className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
-            >
-              <ThreadsIcon size={26} />
-            </a>
-            <a
-              href="https://github.com/armondschneider"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="GitHub"
-              className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
-            >
-              <Github01Icon size={26} />
-            </a>
-            <a
-              href="https://linkedin.com/in/armondschneider"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="LinkedIn"
-              className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
-            >
-              <Linkedin01Icon size={26} />
-            </a>
-            <a
-              href="https://read.cv/armond"
-              target="_blank"
-              title="Read.CV"
-              className="rotate-12 text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
-            >
-              <LicenseIcon size={24} />
-            </a>
-            <a
-              href="mailto:armondschneider@gmail.com"
-              title="Email"
-              className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
-            >
-              <Mail01Icon size={26} />
-            </a>
-          </div>
-        </div>
+        {/* Links */}
+        <motion.div
+          className="flex flex-row gap-4 align-baseline"
+          variants={fadeInUp}
+        >
+          <a
+            href="https://threads.net/@armondme"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Threads"
+            className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
+          >
+            <ThreadsIcon size={26} />
+          </a>
+          <a
+            href="https://github.com/armondschneider"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub"
+            className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
+          >
+            <Github01Icon size={26} />
+          </a>
+          <a
+            href="https://linkedin.com/in/armondschneider"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+            className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
+          >
+            <Linkedin01Icon size={26} />
+          </a>
+          <a
+            href="https://read.cv/armond"
+            target="_blank"
+            title="Read.CV"
+            className="rotate-12 text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
+          >
+            <LicenseIcon size={24} />
+          </a>
+          <a
+            href="mailto:armondschneider@gmail.com"
+            title="Email"
+            className="text-slate-400 hover:text-slate-900 transition-colors ease-out hover:rotate-3"
+          >
+            <Mail01Icon size={26} />
+          </a>
+        </motion.div>
 
         {/* Image Modal */}
         <ImageModal imageSrc={selectedImage} onClose={closeModal} />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
